@@ -28,7 +28,7 @@ namespace CefSharp.MinimalExample.WinForms
                 Dock = DockStyle.Fill,
             };
             browser.DisplayHandler = new DisplayHandler();
-            browser.RegisterAsyncJsObject("callBack", DataProvider.CallBackObject, new BindingOptions { CamelCaseJavascriptNames = false });
+            browser.JavascriptObjectRepository.Register("callBack", DataProvider.CallBackObject,isAsync:true, new BindingOptions { CamelCaseJavascriptNames = false });
             toolStripContainer.ContentPanel.Controls.Add(browser);
         
             browser.IsBrowserInitializedChanged += OnIsBrowserInitializedChanged;

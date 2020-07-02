@@ -12,12 +12,13 @@ namespace CefSharp.MinimalExample.Wpf
             InitializeComponent();
             Browser = new ChromiumWebBrowser();
             this.RegisterName("Browser", Browser);
-            Browser.RegisterAsyncJsObject("callBack", DataProvider.CallBackObject, new BindingOptions { CamelCaseJavascriptNames = false });
+            //Browser.RegisterAsyncJsObject();
+            Browser.JavascriptObjectRepository.Register("callBack", DataProvider.CallBackObject, isAsync: true, new BindingOptions { CamelCaseJavascriptNames = false });
             Loaded += MainWindow_Loaded;
             Closing += MainWindow_Closing;
         }
 
-       
+
 
         private ChromiumWebBrowser Browser { get; set; }
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -30,7 +31,7 @@ namespace CefSharp.MinimalExample.Wpf
         {
             BrowserContent.Content = Browser;
             DataProvider.CallBackObject.WebBrowserCallBack += CallBackObject_WebBrowserCallBack;
-            Browser.Address= DataProvider.GanttUrl;
+            Browser.Address = DataProvider.GanttUrl;
             this.Browser.LoadingStateChanged += Browser_LoadingStateChanged;
         }
 
@@ -41,7 +42,7 @@ namespace CefSharp.MinimalExample.Wpf
 
         private void Browser_LoadingStateChanged(object sender, LoadingStateChangedEventArgs e)
         {
-            
+
         }
 
     }
