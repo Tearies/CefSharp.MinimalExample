@@ -31,7 +31,15 @@ namespace CefSharp.MinimalExample.Common.browser
 
         private void AddCommandLine(CefCommandLineArgment cefCommandLineArgment)
         {
-            CefCommandLineArgs.Add(cefCommandLineArgment.Key, cefCommandLineArgment.Value.ToString());
+            if (CefCommandLineArgs.ContainsKey(cefCommandLineArgment.Key))
+            {
+                CefCommandLineArgs[cefCommandLineArgment.Key] = cefCommandLineArgment.Value;
+            }
+            else
+            {
+                CefCommandLineArgs.Add(cefCommandLineArgment.Key, cefCommandLineArgment.Value.ToString());
+            }
+         
         }
          
         public void SetArgments()
