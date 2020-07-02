@@ -15,8 +15,8 @@ namespace CefSharp.MinimalExample.Wpf
             InitializeComponent();
             Browser = new ChromiumWebBrowser();
             Browser.BrowserSettings = ChromiumManager.BrowserSetting;
-            Browser.WebBrowser.ConsoleMessage += OnBrowserConsoleMessage;
-            Browser.WebBrowser.StatusMessage += OnBrowserStatusMessage;
+            Browser.ConsoleMessage += OnBrowserConsoleMessage;
+            Browser.StatusMessage += OnBrowserStatusMessage;
             this.RegisterName("Browser", Browser);
             //Browser.RegisterAsyncJsObject();
             Browser.JavascriptObjectRepository.Register("callBack", DataProvider.CallBackObject, isAsync: true, new BindingOptions { CamelCaseJavascriptNames = false });
