@@ -3,6 +3,7 @@ using System.Windows;
 using CefSharp.MinimalExample.Common;
 using CefSharp.MinimalExample.Common.browser;
 using CefSharp.MinimalExample.Common.data;
+using CefSharp.MinimalExample.Common.log;
 using CefSharp.Wpf;
 
 namespace CefSharp.MinimalExample.Wpf
@@ -14,6 +15,8 @@ namespace CefSharp.MinimalExample.Wpf
             InitializeComponent();
             Browser = new ChromiumWebBrowser();
             Browser.BrowserSettings = ChromiumManager.BrowserSetting;
+            Browser.WebBrowser.ConsoleMessage += OnBrowserConsoleMessage;
+            Browser.WebBrowser.StatusMessage += OnBrowserStatusMessage;
             this.RegisterName("Browser", Browser);
             //Browser.RegisterAsyncJsObject();
             Browser.JavascriptObjectRepository.Register("callBack", DataProvider.CallBackObject, isAsync: true, new BindingOptions { CamelCaseJavascriptNames = false });
@@ -22,6 +25,16 @@ namespace CefSharp.MinimalExample.Wpf
         }
 
 
+        private void OnBrowserConsoleMessage(object sender, ConsoleMessageEventArgs args)
+        {
+            Log.Error(string.Format("Line: {0}, Source: {1}, Message: {2}", args.Line, args.Source, args.Message));
+        }
+
+        private void OnBrowserStatusMessage(object sender, StatusMessageEventArgs args)
+        {
+            
+            Log.Info(args.Value);
+        }
 
         private ChromiumWebBrowser Browser { get; set; }
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)

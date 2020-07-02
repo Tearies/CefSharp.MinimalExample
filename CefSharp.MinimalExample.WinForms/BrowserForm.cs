@@ -11,6 +11,7 @@ using System;
 using System.Windows.Forms;
 using CefSharp.MinimalExample.Common.browser;
 using CefSharp.MinimalExample.Common.data;
+using CefSharp.MinimalExample.Common.log;
 
 namespace CefSharp.MinimalExample.WinForms
 {
@@ -64,13 +65,14 @@ namespace CefSharp.MinimalExample.WinForms
         }
 
         private void OnBrowserConsoleMessage(object sender, ConsoleMessageEventArgs args)
-        {
-            DisplayOutput(string.Format("Line: {0}, Source: {1}, Message: {2}", args.Line, args.Source, args.Message));
+        { 
+           Log.Error(string.Format("Line: {0}, Source: {1}, Message: {2}", args.Line, args.Source, args.Message));
         }
 
         private void OnBrowserStatusMessage(object sender, StatusMessageEventArgs args)
         {
             this.InvokeOnUiThreadIfRequired(() => statusLabel.Text = args.Value);
+            Log.Info(args.Value);
         }
 
         private void OnLoadingStateChanged(object sender, LoadingStateChangedEventArgs args)
