@@ -1,6 +1,7 @@
 ﻿using System.Globalization;
 using System.Windows;
 using CefSharp.MinimalExample.Common;
+using CefSharp.MinimalExample.Common.browser;
 using CefSharp.MinimalExample.Common.data;
 using CefSharp.Wpf;
 
@@ -12,6 +13,7 @@ namespace CefSharp.MinimalExample.Wpf
         {
             InitializeComponent();
             Browser = new ChromiumWebBrowser();
+            Browser.BrowserSettings = ChromiumManager.BrowserSetting;
             this.RegisterName("Browser", Browser);
             //Browser.RegisterAsyncJsObject();
             Browser.JavascriptObjectRepository.Register("callBack", DataProvider.CallBackObject, isAsync: true, new BindingOptions { CamelCaseJavascriptNames = false });

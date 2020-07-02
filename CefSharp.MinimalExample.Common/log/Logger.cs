@@ -26,24 +26,7 @@ namespace CefSharp.MinimalExample.Common.log
             _DefaultLogger = factory.GetLogger("DefaultLog");
         }
 
-        /// <summary>
-        /// 更改日志存储路径
-        /// </summary>
-        /// <param name="name"></param>
-        public void UpdateLogPath(Func<string, string> func)
-        {
-            NLog.Config.XmlLoggingConfiguration config = new XmlLoggingConfiguration(FileHelper.GetPhysicalPath("config\\nlog.config"), true);
-            foreach (var item in config.AllTargets)
-            {
-                var ftarget = item as NLog.Targets.FileTarget;
-                if (ftarget == null) continue;
-                var lay = ftarget.FileName as NLog.Layouts.SimpleLayout;
-                lay.Text = func(lay.Text);
-            }
-            var factory = new NLog.LogFactory(config);
-            _DefaultLogger = factory.GetLogger("DefaultLog");
-        }
-
+      
         public void Info(string message)
         {
             _DefaultLogger.Info(message);
@@ -72,6 +55,54 @@ namespace CefSharp.MinimalExample.Common.log
         {
 
             _DefaultLogger.Trace(message);
+        }
+    }
+
+    public static class Log
+    {
+        private static Logger InnerLoger;
+
+        static Log()
+        {
+            InnerLoger = new Logger();
+        }
+
+        
+        /// <summary>
+        /// 记录消息日志
+        /// </summary>
+        public static void Info(string message)
+        {
+            InnerLoger.Info(message);
+        }
+        /// <summary>
+        /// 向日志文件中写入 “警告内容”。
+        /// </summary>
+        public static void Warn(string message)
+        {
+            InnerLoger.Warn(message);
+        }
+        /// <summary>
+        /// 记录错误消息
+        /// </summary>
+        public static void Error(string message, Exception ex = null)
+        {
+            InnerLoger.Error(message, ex);
+        }
+        /// <summary>
+        /// 记录调试信息
+        /// </summary>
+        public static void Debug(string message)
+        {
+            InnerLoger.Debug(message);
+        }
+
+        /// <summary>
+        /// 向日志文件中写入Trace
+        /// </summary>
+        public static void Trace(string message)
+        {
+            InnerLoger.Trace(message);
         }
     }
 }

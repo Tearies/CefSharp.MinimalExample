@@ -9,6 +9,7 @@ using CefSharp.MinimalExample.WinForms.Controls;
 using CefSharp.WinForms;
 using System;
 using System.Windows.Forms;
+using CefSharp.MinimalExample.Common.browser;
 using CefSharp.MinimalExample.Common.data;
 
 namespace CefSharp.MinimalExample.WinForms
@@ -28,6 +29,7 @@ namespace CefSharp.MinimalExample.WinForms
             {
                 Dock = DockStyle.Fill,
             };
+            browser.BrowserSettings = ChromiumManager.BrowserSetting;
             browser.DisplayHandler = new DisplayHandler();
             browser.JavascriptObjectRepository.Register("callBack", DataProvider.CallBackObject,isAsync:true, new BindingOptions { CamelCaseJavascriptNames = false });
             toolStripContainer.ContentPanel.Controls.Add(browser);

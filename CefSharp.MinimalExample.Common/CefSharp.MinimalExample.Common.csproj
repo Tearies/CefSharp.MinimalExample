@@ -67,6 +67,9 @@
     <Reference Include="CefSharp.Core">
       <HintPath>..\packages\CefSharp.Common.83.4.20\CefSharp\x64\CefSharp.Core.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>..\packages\NLog.4.7.2\lib\net45\NLog.dll</HintPath>
     </Reference>
@@ -90,6 +93,7 @@
     <Compile Include="args\CefCommandLineArgments.cs" />
     <Compile Include="browser\CefSetting.cs" />
     <Compile Include="browser\ChromiumManager.cs" />
+    <Compile Include="browser\JsonHelper.cs" />
     <Compile Include="browser\SocketPort.cs" />
     <Compile Include="data\DataProvider.cs" />
     <Compile Include="args\FileHelper.cs" />
@@ -102,7 +106,7 @@
     <Compile Include="args\XmlCommentAttribute.cs" />
     <Compile Include="args\XmlCommentExtensions.cs" />
     <Compile Include="args\XmlExtensions.cs" />
-    <Compile Include="log\Class1.cs" />
+    <Compile Include="log\Logger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
