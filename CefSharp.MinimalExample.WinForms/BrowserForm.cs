@@ -40,9 +40,9 @@ namespace CefSharp.MinimalExample.WinForms
             LoadUrl(DataProvider.GanttUrl);
             var bitness = Environment.Is64BitProcess ? "x64" : "x86";
             var environment = String.Format("Environment: {0}", bitness);
-#endif
+ 
 
-            DisplayOutput(string.Format("{0}, {1}", version, environment));
+            //DisplayOutput(string.Format("{0}, {1}", version, environment));
         }
 
         private void CallBackObject_WebBrowserCallBack(object sender, GanttBoundObjectEventArgs e)
