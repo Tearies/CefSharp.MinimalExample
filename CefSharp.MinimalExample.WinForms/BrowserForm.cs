@@ -9,6 +9,7 @@ using CefSharp.MinimalExample.WinForms.Controls;
 using CefSharp.WinForms;
 using System;
 using System.Windows.Forms;
+using CefSharp.MinimalExample.Common.data;
 
 namespace CefSharp.MinimalExample.WinForms
 {
@@ -37,7 +38,7 @@ namespace CefSharp.MinimalExample.WinForms
             browser.StatusMessage += OnBrowserStatusMessage;
             browser.TitleChanged += OnBrowserTitleChanged;
             browser.AddressChanged += OnBrowserAddressChanged;
-            LoadUrl(DataProvider.GanttUrl);
+           
             var bitness = Environment.Is64BitProcess ? "x64" : "x86";
             var environment = String.Format("Environment: {0}", bitness);
  
@@ -47,10 +48,9 @@ namespace CefSharp.MinimalExample.WinForms
 
         private void CallBackObject_WebBrowserCallBack(object sender, GanttBoundObjectEventArgs e)
         {
-            MessageBox.Show($"{e.GanttCallBackName}({e.Data})");
+             
         }
 
-        
 
         private void OnIsBrowserInitializedChanged(object sender, EventArgs e)
         {
