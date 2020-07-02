@@ -46,6 +46,7 @@ namespace CefSharp.MinimalExample.Wpf
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             BrowserContent.Content = Browser;
+            Browser.Address=DataProvider.MainPage;
             DataProvider.CallBackObject.WebBrowserCallBack += CallBackObject_WebBrowserCallBack;
      
             this.Browser.LoadingStateChanged += Browser_LoadingStateChanged;

@@ -39,7 +39,7 @@ namespace CefSharp.MinimalExample.Common.log
 
         public void Error(string message, Exception ex = null)
         {
-            _DefaultLogger.Error(message + Environment.NewLine + ex.ToString());
+            _DefaultLogger.Error(message + Environment.NewLine + ex?.ToString());
         }
 
         public void Debug(string message)

@@ -8,7 +8,8 @@ namespace CefSharp.MinimalExample.Common.data
         {
             CallBackObject = new GanttBoundObject();
         }
-   
+
+        public static string MainPage => "http://www.baidu.com";
 
         public static GanttBoundObject CallBackObject { get; private set; }
 

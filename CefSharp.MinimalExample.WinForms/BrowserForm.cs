@@ -41,12 +41,8 @@ namespace CefSharp.MinimalExample.WinForms
             browser.StatusMessage += OnBrowserStatusMessage;
             browser.TitleChanged += OnBrowserTitleChanged;
             browser.AddressChanged += OnBrowserAddressChanged;
-           
-            var bitness = Environment.Is64BitProcess ? "x64" : "x86";
-            var environment = String.Format("Environment: {0}", bitness);
- 
 
-            //DisplayOutput(string.Format("{0}, {1}", version, environment));
+            browser.Load(DataProvider.MainPage);
         }
 
         private void CallBackObject_WebBrowserCallBack(object sender, GanttBoundObjectEventArgs e)
