@@ -51,7 +51,11 @@ namespace CefSharp.MinimalExample.Common
         }
         public static string GanttUrl
         {
-            get { return BuildLocalUrl("/LocalHtml/gantt.html"); }
+            get
+            {
+                return "http://www.baidu.com";
+                //return BuildLocalUrl("/LocalHtml/gantt.html");
+            }
         }
 
         public static GanttBoundObject CallBackObject { get; private set; }
