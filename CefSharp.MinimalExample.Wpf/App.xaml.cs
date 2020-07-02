@@ -14,6 +14,7 @@ namespace CefSharp.MinimalExample.Wpf
         //    //This will at some point in the future becomes the default
           CefSharpSettings.SubprocessExitIfParentProcessClosed = true;
 
+#if !NETCOREAPP
             var settings = new CefSettings()
             {
                 //By default CefSharp will use an in-memory cache, you need to specify a Cache Folder to persist data
@@ -38,6 +39,14 @@ namespace CefSharp.MinimalExample.Wpf
         //    //Enables WebRTC
            settings.CefCommandLineArgs.Add("enable-media-stream", "1");
 
+            //Example of setting a command line argument
+            //Enables WebRTC
+            settings.CefCommandLineArgs.Add("enable-media-stream");
+
+            //Perform dependency check to make sure all relevant resources are in our output directory.
+            Cef.Initialize(settings, performDependencyCheck: true, browserProcessHandler: null);
+#endif
+        }
      
         Cef.Initialize(settings);
        }

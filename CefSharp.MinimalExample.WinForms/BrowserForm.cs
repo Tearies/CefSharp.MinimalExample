@@ -7,6 +7,8 @@ using System.Windows.Forms;
 using CefSharp.MinimalExample.Common;
 using CefSharp.MinimalExample.WinForms.Controls;
 using CefSharp.WinForms;
+using System;
+using System.Windows.Forms;
 
 namespace CefSharp.MinimalExample.WinForms
 {
@@ -37,8 +39,10 @@ namespace CefSharp.MinimalExample.WinForms
             browser.AddressChanged += OnBrowserAddressChanged;
             LoadUrl(DataProvider.GanttUrl);
             var bitness = Environment.Is64BitProcess ? "x64" : "x86";
-            var version = String.Format("Chromium: {0}, CEF: {1}, CefSharp: {2}, Environment: {3}", Cef.ChromiumVersion, Cef.CefVersion, Cef.CefSharpVersion, bitness);
-            DisplayOutput(version);
+            var environment = String.Format("Environment: {0}", bitness);
+#endif
+
+            DisplayOutput(string.Format("{0}, {1}", version, environment));
         }
 
         private void CallBackObject_WebBrowserCallBack(object sender, GanttBoundObjectEventArgs e)
