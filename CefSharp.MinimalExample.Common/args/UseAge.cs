@@ -5,11 +5,11 @@
         /// <summary>
         /// 应用于所有场景
         /// </summary>
-        None = 0b00,
+        None = 0b01,
         /// <summary>
         /// 只用于调试模式
         /// </summary>
-        Debug = 0b10
+        Debug = None| 0b10
     }
 
     public enum Target

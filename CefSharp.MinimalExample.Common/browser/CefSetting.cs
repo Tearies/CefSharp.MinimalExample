@@ -44,8 +44,7 @@ namespace CefSharp.MinimalExample.Common.browser
          
         public void SetArgments()
         {
-            CefArgmentsManager.SetArgments(UseAge.None, Target.Common, AddCommandLine);
-            CefArgmentsManager.SetArgments(UseAge.None,CurrentRuntimeTarget,AddCommandLine);
+            CefArgmentsManager.SetArgments(UseAge.Debug, CurrentRuntimeTarget, AddCommandLine);
         }
     }
 }
