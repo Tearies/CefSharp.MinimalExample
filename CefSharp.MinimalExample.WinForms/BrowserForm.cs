@@ -34,17 +34,15 @@ namespace CefSharp.MinimalExample.WinForms
             browser.DisplayHandler = new DisplayHandler();
             browser.JavascriptObjectRepository.Register("callBack", DataProvider.CallBackObject,isAsync:true, new BindingOptions { CamelCaseJavascriptNames = false });
             toolStripContainer.ContentPanel.Controls.Add(browser);
-        
             browser.IsBrowserInitializedChanged += OnIsBrowserInitializedChanged;
             browser.LoadingStateChanged += OnLoadingStateChanged;
             browser.ConsoleMessage += OnBrowserConsoleMessage;
             browser.StatusMessage += OnBrowserStatusMessage;
             browser.TitleChanged += OnBrowserTitleChanged;
             browser.AddressChanged += OnBrowserAddressChanged;
-
             browser.Load(DataProvider.MainPage);
         }
-
+ 
         private void CallBackObject_WebBrowserCallBack(object sender, GanttBoundObjectEventArgs e)
         {
              

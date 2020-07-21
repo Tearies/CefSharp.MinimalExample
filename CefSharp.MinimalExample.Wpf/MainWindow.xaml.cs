@@ -23,7 +23,7 @@ namespace CefSharp.MinimalExample.Wpf
             Loaded += MainWindow_Loaded;
             Closing += MainWindow_Closing;
         }
-
+ 
 
         private void OnBrowserConsoleMessage(object sender, ConsoleMessageEventArgs args)
         {

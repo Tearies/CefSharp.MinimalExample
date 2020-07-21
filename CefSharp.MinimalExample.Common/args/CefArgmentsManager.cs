@@ -44,7 +44,7 @@ namespace CefSharp.MinimalExample.Common.args
         private static void UseDefaultArgments()
         {
             CommandLineArgments = new CefCommandLineArgments();
-            CommandLineArgments.Add("show-fps-counter", "", UseAge.Debug, Target.Common);
+           CommandLineArgments.Add("show-fps-counter", "", UseAge.Debug, Target.Common);
             CommandLineArgments.Add("show-taps", string.Empty, UseAge.Debug, Target.Common);
             CommandLineArgments.Add("process-per-site", string.Empty, UseAge.None, Target.Common);
             CommandLineArgments.Add("ignore-urlfetcher-cert-requests", "1", UseAge.None, Target.Common);
@@ -53,6 +53,8 @@ namespace CefSharp.MinimalExample.Common.args
             CommandLineArgments.Add("enable-webgl", "1", UseAge.None, Target.Common);
             CommandLineArgments.Add("ignore-gpu-blacklist", "1", UseAge.None, Target.Common);
             CommandLineArgments.Add("allow-file-access-from-files", "1", UseAge.None, Target.Common);
+            CommandLineArgments.Add("force-device-scale-factor", "1", UseAge.None, Target.Common);
+
             CommandLineArgments.DebugMode = false;
             SaveConfig();
         }

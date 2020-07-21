@@ -49,7 +49,6 @@ namespace CefSharp.MinimalExample.Common.browser
             setting.UncaughtExceptionStackSize = 10;
             setting.PersistUserPreferences = false;
             setting.IgnoreCertificateErrors = true;
-
             Cef.EnableHighDPISupport();
             CefSharpSettings.ShutdownOnExit = true;
             CefSharpSettings.LegacyJavascriptBindingEnabled = true;
