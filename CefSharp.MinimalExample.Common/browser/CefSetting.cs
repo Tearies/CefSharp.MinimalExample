@@ -6,7 +6,7 @@ using CefSharp.MinimalExample.Common.args;
 
 namespace CefSharp.MinimalExample.Common.browser
 {
-    public class CefSetting : AbstractCefSettings
+    public class CefSetting : CefSettingsBase
     {
 
         public Target CurrentRuntimeTarget
