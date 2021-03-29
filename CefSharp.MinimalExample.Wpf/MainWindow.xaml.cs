@@ -19,7 +19,7 @@ namespace CefSharp.MinimalExample.Wpf
             Browser.StatusMessage += OnBrowserStatusMessage;
             this.RegisterName("Browser", Browser);
             //Browser.RegisterAsyncJsObject();
-            Browser.JavascriptObjectRepository.Register("callBack", DataProvider.CallBackObject, isAsync: true, new BindingOptions { CamelCaseJavascriptNames = false });
+            Browser.JavascriptObjectRepository.Register("callBack", DataProvider.CallBackObject, isAsync: true, new BindingOptions { });
             Loaded += MainWindow_Loaded;
             Closing += MainWindow_Closing;
         }

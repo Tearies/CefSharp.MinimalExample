@@ -31,8 +31,8 @@ namespace CefSharp.MinimalExample.WinForms
                 Dock = DockStyle.Fill,
             };
             browser.BrowserSettings = ChromiumManager.BrowserSetting;
-            browser.DisplayHandler = new DisplayHandler();
-            browser.JavascriptObjectRepository.Register("callBack", DataProvider.CallBackObject,isAsync:true, new BindingOptions { CamelCaseJavascriptNames = false });
+          
+            browser.JavascriptObjectRepository.Register("callBack", DataProvider.CallBackObject,isAsync:true, new BindingOptions { });
             toolStripContainer.ContentPanel.Controls.Add(browser);
             browser.IsBrowserInitializedChanged += OnIsBrowserInitializedChanged;
             browser.LoadingStateChanged += OnLoadingStateChanged;
